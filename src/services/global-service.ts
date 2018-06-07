@@ -11,17 +11,20 @@ import { Comment, sampleCommentList } from './../data/data';
 export class GlobalService {
 
   getComments(pagesize: number, pagenumber: number): any {
+    //This function should call RESTFul API using observables.
+    //For demo we used the static data from a constant Array list
+
     const locSampleCommentList = sampleCommentList;
     const dataFromDb = this.paginate(locSampleCommentList, pagesize, pagenumber-1);
 
     return { 
               data: dataFromDb, 
-              totalRecords: 20 
+              totalRecords: locSampleCommentList.length 
             };
   }
 
   paginate(arr: Array<Comment>, pagesize, pagenumber) {
-    
+
     return arr.slice(pagenumber * pagesize, (pagenumber + 1) * pagesize);
   }
 
