@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<app-pagination 
+[totalRecords]="totalRecords" 
+[pageSizeList]="[5, 10, 15, 20, 50, 100, 500]" 
+[defaultPageSize] = "defaultPageSize"
+(navButtonClick)="OnNavButtonClick($event)">
+Loading...
+</app-pagination>
+<table id="comments">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Comment</th>
+  </tr>
+  <tr *ngFor="let comment of comments">
+    <td> {{ comment.id }} </td>
+    <td [innerHTML]="comment.name"></td>
+    <td [innerHTML]="comment.email"></td>
+    <td [innerHTML]="comment.body"></td>
+  </tr>
+  </table>
+
